@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển</title>
+</head>
+<body>
+    <h1>Từ điển CodeGym</h1>
+    <label for="word">Nhập từ</label>
+    <input type="text" id="word">
+    <input type="button" onclick="bai3()" value="Dịch">
+    <p id="kq"></p>
+
+    <script>
+        function bai3() {
+            let eng = ["apple", "banana", "pen"];
+            let vie = ["táo", "chuối", "bút"];
+            let trans = document.getElementById('word').value;
+            let index_eng = 0;
+            let result = '';
+            for (let i = 0; i < eng.length; i++) {
+                if (eng[i]==trans) {
+                    index_eng = i;
+                }
+                for (let j = 0; j < vie.length; j++) {
+                    if (index_eng == j) {
+                        result = vie[j];
+                    }
+                }
+            }
+        document.getElementById("kq").innerHTML=result;    
+        }
+    </script>
+</body>
+</html>
