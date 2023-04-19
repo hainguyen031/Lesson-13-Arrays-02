@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập sử dụng mảng 01</title>
+</head>
+<body>
+    <p>Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.</p>
+    <button type="button" onclick="bai1()">Bài 1</button>
+    <hr>
+
+    <p>Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.</p>
+    <button type="button" onclick="bai2()">Bài 2</button>
+    <hr>
+
+    <p>Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.</p>
+    <input type="number" id="bai3" placeholder="Nhập mảng số nguyên">
+    <button type="button" onclick="nhapMang()">Nhập mảng</button>
+    <button type="button" onclick="hienThi()">Hiển thị mảng</button>
+    <button type="button" onclick="max()">Max</button>
+    <button type="button" onclick="trungBinh()">Average</button>
+    <p id="hienThi"></p>
+    <p id="lonnhat"></p>
+    <p id="trungbinh"></p>
+
+    <p>Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.</p>
+    <input type="number" id="bai4" placeholder="Nhập mảng số nguyên">
+    <button type="button" onclick="nhap()">Nhập mảng</button>
+    <button type="button" onclick="nguoc()">Đảo ngược</button>
+    <p id="b4"></p>
+    <hr>
+
+    <p>Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi</p>
+    <button type="button" onclick="bai5()">Đếm số</button>
+
+    <p>Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".</p>
+    <button type="button" onclick="checkb6()">Check</button>
+    <hr>
+    
+
+    <p>Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)</p>
+    <button type="button" onclick="bai7()">Bài 7</button>
+    <hr>
+
+    <p>Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.</p>
+    <button type="button" onclick="bai8()">Bài 8</button>
+    <hr>
+
+    <p>Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b. Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.</p>
+    <button type="button" onclick="bai9()">Bài 9</button>
+    <hr>
+
+<script>
+    //Bai 1
+    function bai1() {
+        let x = [2,6,8,4,16,9,12,17,1,10];
+        let count = 0;
+        for (let i = 0; i < x.length; i++) {
+            if (x[i] >= 10) {
+            count++;
+        }
+    }
+    alert('Trong mảng ' +x+ ' số lượng các số nguyên lớn hơn 10 là: ' +count);
+    }
+
+    //Bai 2
+    function bai2() {
+        let x = [1,5,3,9,7,12,14,2,8,4]
+        let index = 0;
+        let max = x[0]
+        for (let i = 1; i < x.length; i++) {
+            if (x[i]>max) {
+                max = x[i];
+                index = i;
+            }
+        }
+        alert('Số lớn nhất là '+max+' nằm ở vị trí số '+index);
+    }
+
+    //Bai 3
+    let x = 0;
+    let array = Array();
+    function nhapMang() {
+        array[x] = document.getElementById("bai3").value;
+        x++;
+    }
+
+    function hienThi() {
+        document.getElementById('hienThi').innerHTML='Array= '+array;
+    }
+
+    function max() {
+        let gtmax = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (array[i]>gtmax) {
+                gtmax = array[i];
+            }
+        }
+        document.getElementById('lonnhat').innerHTML='Gía trị lớn nhất trong mảng là: '+gtmax;
+    }
+
+    function trungBinh() {
+        let sum = 0;
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += +array[i];
+        }
+        let ave = sum / +array.length;
+        document.getElementById('trungbinh').innerHTML='Gía trị trung bình của mảng là: '+ave;
+    }
+
+    //Bai 4
+    let a = 0;
+    let Arr = [];
+    function nhap() {
+        Arr[a] = document.getElementById('bai4').value;
+        a++;
+    }
+    function nguoc() {
+        document.getElementById('b4').innerHTML='Mảng '+Arr+ ' đảo ngược thành '+ Arr.reverse()
+    }
+
+    //Bai 5
+    function bai5() {
+        let x = [1,-5,-4,-2,3,9,-11,2,4,-10];
+        let count = 0;
+        for (let i = 0 ; i < x.length; i++) {
+            if (x[i]<0) {
+                count++
+            }
+        }
+        alert('Trong chuỗi '+x+' có ' +count+ ' số nguyên âm');
+    }
+
+    //Bai 6
+    function checkb6() {
+        let Mang = [1,5,3,4,8,9,10,21,16,17];
+        let V = +prompt('Nhập V');
+        if (Mang.includes(V)) {
+            alert('V='+V+' is in the array:'+Mang)
+        } else {
+            alert('V='+V+' is not in the array:'+Mang)
+        }
+    }
+
+    //Bai 7
+    function bai7() {
+        let arr = [1,2,3,4,5,6,7,8,9,10];
+        let v = +prompt('Nhập số');
+        let index = arr.indexOf(v);
+        if (index !== -1) {
+            for (let i = index; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = 0;
+            alert(`V is in the array. The array after deleting V: ${arr}`);
+        } else {
+            alert(`V is not in the array. The array: ${arr}`);
+        }
+    }
+
+    //Bai 8
+    function bai8() {
+        let arr = [1,5,9,3,7,4,8,6,2,11];
+        arr.sort(function(a,b){return b-a})
+        alert(arr);
+    }
+
+    //Bai 9
+    function bai9() {
+        let a=[1,2,3,4,5,6,7,8,9,10];
+        let b=[11,12,13,14,15,16,17,18,19,20];
+        c=a.concat(b);
+        alert(c);
+    }
+</script>
+</body>
+</html>
