@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập sử dụng mảng 02</title>
+</head>
+<body>
+    
+    <p>Bài 1: Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng. Chú ý: Sử dụng vòng lặp for lồng nhau</p>
+    <button type="button" onclick="bai1()">Bài 1</button>
+    <hr>
+
+    <p>Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược. Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"</p>
+    <button type="button" onclick="bai2()">Bài 2</button>
+    <hr>
+
+    <p>Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng. </p>
+    <button type="button" onclick="bai3()">Bài 3</button>
+    <hr>
+
+    <p>Bài 4: Viết một chương trình để đếm số từ trong một chuỗi</p>
+    <button type="button" onclick="bai4()">Bài 4</button>
+    <hr>
+
+    <p>Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.</p>
+    <button type="button" onclick="bai5()">Bài 5</button>
+    <hr>
+
+    <p>Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )</p>
+    <button type="button" onclick="bai6()">Bài 6</button>
+    <hr>
+    <script>
+        //Bai 1
+        function bai1() {
+            let a = [[1,2,1,4],[8,11,9,4],[7,0,7,27],[7,4,28,14],[3,10,26,7]];
+            for (var i in a) {
+                console.log("row " + i);
+                for (var j in a[i]) {
+                    console.log(" " + a[i][j]);
+                }
+            }
+        }
+
+        //Bai 2
+        function bai2() {
+            let a = ['c', 's', 'c', '2', '6', '1']
+            let b = a.reverse();
+            let c = b.join('');
+            alert(c);
+        }
+
+        //Bai 3
+        function bai3() {
+            let a = ['1', '3', 'v', '4', 's', 'g', 'd', '6', 'e', '9'];
+            let count = 0;
+            for (let i = 0; i < a.length; i++) {
+                if (!isNaN(a[i])) {
+                    count++;
+                }
+            }
+            alert(count+ ' ký tự số trong mảng');
+        }
+
+        //Bai 4
+        function bai4() {
+            let a = prompt('Nhập vào một chuỗi ký tự');
+            let b = a.trim();
+            let c = b.split(/\s+/);
+            alert('Số từ trong chuỗi là ' +c.length);          
+        }
+
+
+        //Bai 5
+        function bai5() {
+            let a = prompt('Nhập chuỗi a');
+            let b = prompt('Nhập chuỗi b');
+            if (a==b) {
+                alert('Hai chuỗi giống nhau')
+            } else {
+                alert('Hai chuỗi khác nhau')
+            }
+        }
+
+        //Bai 6
+        function bai6() {
+            let a = prompt('Nhập mảng');
+            let b = a.trim();
+            let c = b.split(/\s+/);
+            for ( let i = 0; i < c.length; i++) {
+                if (c[i]=='-') {
+                    c[i]='_';
+                }
+            }
+            alert(c);
+        }
+    </script>
+</body>
+</html>
